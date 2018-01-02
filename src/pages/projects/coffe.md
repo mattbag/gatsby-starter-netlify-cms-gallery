@@ -1,5 +1,5 @@
 ---
-templateKey: product-page
+templateKey: project-page
 path: /coffe
 title: Our Coffee
 date: 2018-01-02T05:58:36.602Z
