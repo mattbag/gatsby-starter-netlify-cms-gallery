@@ -60,9 +60,9 @@ collections:
       - {label: Image, name: heroImage, widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
 
-  - label: "Gallery"
-    name: "galleryImages"
-    folder: "src/pages/projects"
+  - label: "Galleries"
+    name: "galleries"
+    folder: "src/galleries"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     widget: "list"
