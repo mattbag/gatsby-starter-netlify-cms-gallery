@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`
+    title: `Netlifolio feat. Gatsby`
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -17,6 +17,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/img`,
         name: 'images'
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/galleries`,
+        name: 'galleries'
       }
     },
     `gatsby-plugin-sharp`,

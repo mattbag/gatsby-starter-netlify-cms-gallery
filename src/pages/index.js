@@ -20,6 +20,9 @@ export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
+    // console.log('------------------------------------');
+    // console.log(data);
+    // console.log('------------------------------------');
     return (
       <section className="section">
         <Script
@@ -30,7 +33,7 @@ export default class IndexPage extends React.Component {
           <div className="content">
             <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
           </div>
-          {posts.filter(post => post.node.frontmatter.templateKey === 'blog-post').map(({ node: post }) => {
+          {posts.filter(post => post.node.frontmatter.templateKey === 'project-page').map(({ node: post }) => {
             return (
               <div className="content" style={{ border: '1px solid #eaecee', padding: '2em 4em' }} key={post.id}>
                 <p>

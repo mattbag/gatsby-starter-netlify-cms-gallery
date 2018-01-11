@@ -59,3 +59,12 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: Image, name: heroImage, widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  - label: "Gallery"
+    name: "galleryImages"
+    folder: "src/pages/projects"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    widget: "list"
+    field:
+      - {label: Image, name: image, widget: image}
