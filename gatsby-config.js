@@ -33,6 +33,7 @@ module.exports = {
       options: {
         plugins: []
       }
-    }
+    },
+    `gatsby-plugin-react-next`
   ]
 };
