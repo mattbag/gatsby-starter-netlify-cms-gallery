@@ -233,6 +233,9 @@ collections:
         name: galleryImages
         widget: list
         field:
-          - label: Image
-            name: galleryImage
-            widget: image
+        - label: Title
+          name: title
+          widget: string
+        - label: Image
+          name: galleryImage
+          widget: image
