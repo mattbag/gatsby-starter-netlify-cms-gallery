@@ -1,5 +1,4 @@
 ---
-templateKey: 'about-page'
 path: /gallery-1
 title: gallery test
 ---
