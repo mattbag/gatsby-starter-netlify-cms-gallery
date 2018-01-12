@@ -206,7 +206,6 @@ collections:
     folder: src/galleries
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    widget: list
     fields:
       - label: Template Key
         name: templateKey
