@@ -229,10 +229,10 @@ collections:
       - label: Body
         name: body
         widget: markdown
-      - label: Gallery
+      - label: Collection Gallery
         name: galleryImages
         widget: list
         field:
-          - label: Gallery Image
+          - label: Image
             name: galleryImage
             widget: image
