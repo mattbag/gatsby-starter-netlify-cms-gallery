@@ -1,4 +1,5 @@
 ---
+templateKey: 'gallery-page'
 path: /gallery-1
 title: gallery test
 ---
