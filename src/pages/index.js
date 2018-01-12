@@ -20,19 +20,43 @@ export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
-    // console.log('------------------------------------');
-    // console.log(data);
-    // console.log('------------------------------------');
+    // const { edges: files } = data.allFile;
+    // let galleries = [];
+
+    // // console.log(files);
+    // files.forEach(gal => {
+    //   // console.log('------------------------------------');
+    //   // console.log(gal);
+    //   // console.log('------------------------------------');
+    //   if(gal.node.relativeDirectory){
+    //     galleries.push(gal)
+    //   }
+    // })
+    // console.log(galleries);
     return (
       <section className="section">
         <Script
           url="https://identity.netlify.com/v1/netlify-identity-widget.js"
           onLoad={this.handleScriptLoad.bind(this)}
         />
-        <div className="container">
-          <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-          </div>
+        <div className="container" style={{
+          display:'grid',
+          gridTemplateColumns: `repeat(4, 1fr)`,
+          gridGap: 10
+        }}>
+          {posts.filter(post => post.node.frontmatter.templateKey === 'gallery-page').map(({ node: post }) => {
+            return (
+              <div className="content" style={{ border: '1px solid #eaecee'}} key={post.id}>
+                
+                  <Link to={post.frontmatter.path}>
+                  
+                  <img src={post.frontmatter.heroImage} alt={post.frontmatter.title}/>
+                  {post.frontmatter.title}
+                  </Link>
+
+              </div>
+            );
+          })}
           {posts.filter(post => post.node.frontmatter.templateKey === 'project-page').map(({ node: post }) => {
             return (
               <div className="content" style={{ border: '1px solid #eaecee', padding: '2em 4em' }} key={post.id}>
@@ -72,7 +96,15 @@ export const pageQuery = graphql`
             templateKey
             date(formatString: "MMMM DD, YYYY")
             path
+            heroImage
           }
+        }
+      }
+    }
+    allFile(filter: {id: {regex: "/galleries/"}}) {
+      edges {
+        node {
+          relativeDirectory
         }
       }
     }
