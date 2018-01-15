@@ -86,11 +86,11 @@ class GalleryTemplate extends React.Component {
 
         </div>
         <div className="gr">
-          {gallery && gallery.map((gal, i) =>
+          {gallery.length && gallery.map((gal, i) =>
             <div key={i} onClick={(e) => this.openLightbox(i, e)}>
               <Img sizes={gal.node.childImageSharp.sizes} />
-            </div> || <h2>Coming Soon!</h2>
-          )}
+            </div>
+          ) || <h2>Coming Soon!</h2>}
         </div>
         <Lightbox
                 currentImage={this.state.currentImage}
