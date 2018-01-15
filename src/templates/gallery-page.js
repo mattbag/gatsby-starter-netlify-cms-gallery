@@ -28,7 +28,7 @@ export const GalleryTemplate = ({ content, contentComponent, description, title,
         {gallery && gallery.map(gal =>
           <div key={gal.node.id}>
             <Img sizes={gal.node.childImageSharp.sizes} />
-          </div>
+          </div> || <h2>Coming Soon!</h2>
         )}
       </div>
     </div>
