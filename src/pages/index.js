@@ -20,19 +20,7 @@ export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
-    // const { edges: files } = data.allFile;
-    // let galleries = [];
-
-    // // console.log(files);
-    // files.forEach(gal => {
-    //   // console.log('------------------------------------');
-    //   // console.log(gal);
-    //   // console.log('------------------------------------');
-    //   if(gal.node.relativeDirectory){
-    //     galleries.push(gal)
-    //   }
-    // })
-    // console.log(galleries);
+ 
     return (
       <section className="section">
         <Script

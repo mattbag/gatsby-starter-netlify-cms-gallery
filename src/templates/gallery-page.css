@@ -1,0 +1,11 @@
+.frame{
+    box-shadow: 0px 0px 5px 0 rgba(34, 34, 34, 0.2),-10px 10px 0 0 rgba(34, 34, 34, 0.2);
+    /* border: 1px solid #222; */
+    z-index: 1;
+}
+@media screen and (min-width: 1000px){
+    .frame{
+        margin-top: 10vh;
+        margin-left: -5%;
+    }
+}

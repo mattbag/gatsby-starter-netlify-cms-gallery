@@ -5,8 +5,7 @@ title: gallery 2
 date: 2018-01-10T00:00:00+11:00
 description: description
 heroImage: /img/products-grid3.jpg
-galleryImages:
-  - null
+galleryImages: []
 ---
 ### Shade-grown coffee
 
