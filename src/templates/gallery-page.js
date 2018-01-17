@@ -75,8 +75,9 @@ class GalleryTemplate extends React.Component {
         <div className="columns">
           <div className="column is-6">
             {gallery.length &&
+              <img src={hero} alt={title} />
+              || 
               <Img sizes={gallery[0].node.childImageSharp.sizes} />
-              || <img src={hero} alt={title} />
             }
           </div>
           <div className="column is-6">
