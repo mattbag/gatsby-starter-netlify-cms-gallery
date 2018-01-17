@@ -1,8 +1,8 @@
 ---
 templateKey: gallery-page
-path: /gallery-2
-title: gallery 2
-date: 2018-01-10T00:00:00+11:00
+path: /gallery-4
+title: gallery 4
+date: 2018-01-09T13:00:00.000Z
 description: description
 heroImage: /img/products-grid3.jpg
 galleryImages: []
