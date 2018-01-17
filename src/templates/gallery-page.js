@@ -3,8 +3,9 @@ import Content, { HTMLContent } from '../components/Content';
 import Helmet from 'react-helmet';
 import Img from "gatsby-image";
 import Lightbox from 'react-images';
-// import LightboxGallery from "../components/lb";
+
 import './grid.css'
+// import './gallery-page.css'
 
 // export const GalleryTemplate = ({ content, contentComponent, description, title, hero, helmet, gallery }) => {
 class GalleryTemplate extends React.Component {
@@ -78,13 +79,23 @@ class GalleryTemplate extends React.Component {
               || <img src={hero} alt={title} />
             }
           </div>
-          <div className="column is-6 is-pull-1" style={{ backgroundColor: '#fff', zIndex: 1 }}>
+          <div className="column is-6">
+          <div className="" style={{ backgroundColor: '#fff', zIndex: 1, boxShadow: `10px 10px 0 0 black`,
+          padding:`1rem`, transform: `translate3d(-10%,20%,0)` }}>
             <h1 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h1>
             <p>{description}</p>
             <PostContent content={content} />
           </div>
+          </div>
 
         </div>
+        {/* <div style={{
+          display: `grid`,
+          gridTemplateColumns: `repeat(auto-fill, minmax(300px, 1fr))`,
+          alignItems: `flex-start`,
+          gridGap: `10px`,
+          marginTop: `3rem`,
+        }}> */}
         <div className="gr">
           {gallery.length && gallery.map((gal, i) =>
             <div key={i} onClick={(e) => this.openLightbox(i, e)}>
@@ -146,7 +157,6 @@ export const galleryQuery = graphql`
             id
             sizes {
               base64
-              tracedSVG
               aspectRatio
               src
               srcSet
