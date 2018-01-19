@@ -61,12 +61,14 @@ class GalleryTemplate extends React.Component {
   render() {
     let { content, contentComponent, description, title, hero, helmet, gallery } = this.props
     const PostContent = contentComponent || Content;
-    // console.log(this.props)
+
     let LightboxImages = [];
     gallery.forEach(g => {
       let temp;
-      if (g.node.childImageSharp) { temp = { src: g.node.childImageSharp.sizes.originalImg } }
-      LightboxImages.push(temp);
+      if (g.node.childImageSharp != null) { 
+        temp = { src: g.node.childImageSharp.sizes.originalImg } 
+        LightboxImages.push(temp);
+      }
     });
 
     return <section className="section">
@@ -98,9 +100,9 @@ class GalleryTemplate extends React.Component {
 
         <div className="gr">
           {gallery.length && gallery.map((gal, i) => {
-            if (gal.node.childImageSharp) {
+            if (gal.node.childImageSharp != null) {
               return (
-                <div key={i} onClick={(e) => this.openLightbox(i, e)} style={{cursor: `pointer`}} className="hover">
+                <div key={i} onClick={(e) => this.openLightbox(i, e)} style={{ cursor: `pointer` }} className="hover">
                   <Img sizes={gal.node.childImageSharp.sizes} />
                 </div>
               )
@@ -126,10 +128,7 @@ class GalleryTemplate extends React.Component {
 
 export default ({ data }) => {
   const { markdownRemark: post, allFile: gallery } = data;
-  let temp = gallery.edges.filter(edge =>
-    edge.node.relativeDirectory === post.frontmatter.path.replace('/', '')
-  );
-  // console.log(temp);
+ 
   return <GalleryTemplate
     content={post.html}
     contentComponent={HTMLContent}
@@ -137,12 +136,12 @@ export default ({ data }) => {
     helmet={<Helmet title={`${post.frontmatter.title}`} />}
     title={post.frontmatter.title}
     hero={post.frontmatter.heroImage}
-    gallery={temp}
+    gallery={gallery.edges}
   />;
 }
 
 export const galleryQuery = graphql`
-  query GalleryByPath($path: String!) {
+  query GalleryByPath($path: String!,$folder: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
@@ -153,27 +152,36 @@ export const galleryQuery = graphql`
         heroImage
       }
     }
-    allFile(filter: { id: { regex: "/galleries/" } }) {
+    allFile(filter: {relativeDirectory: {eq: $folder}}) {
       edges {
         node {
-          relativeDirectory
-          dir
           childImageSharp {
-            id
-            sizes {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-              originalImg
-              originalName
-            }
+          sizes {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+            originalImg
+            originalName
           }
+        }
         }
       }
     }
   }
 `;
+
+// query GalleryByPath($path: String!) {
+//   allFile(filter: {relativeDirectory: {eq: $path}}) {
+//     group(field: relativeDirectory) {
+//       edges {
+//         node {
+//           relativeDirectory
+//         }
+//       }
+//     }
+//   }
+// }

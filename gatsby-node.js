@@ -14,11 +14,11 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             frontmatter {
               templateKey
               path
+              folder
               date
               title
               image
               heading
-              description
               intro {
                 blurbs {
                   image
@@ -69,10 +69,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       return Promise.reject(result.errors);
     }
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      // console.log(node.frontmatter.folder)
       createPage({
         path: node.frontmatter.path,
         component: path.resolve(`src/templates/${String(node.frontmatter.templateKey)}.js`),
-        context: {} // additional data can be passed via context
+          // Data passed to context is available in page queries as GraphQL variables.
+        context: {folder:node.frontmatter.folder || ''} // additional data can be passed via context
       });
     });
   });

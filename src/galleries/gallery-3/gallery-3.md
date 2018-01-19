@@ -1,10 +1,11 @@
 ---
 templateKey: gallery-page
-path: /gallery-1
-title: gallery test
+path: /gallery-3
+folder: gallery-3
+title: gallery 3
 date: 2018-01-09T13:00:00.000Z
 description: description
-heroImage: /img/products-grid3.jpg
+heroImage: /img/products-grid2.jpg
 galleryImages: []
 ---
 ### Shade-grown coffee

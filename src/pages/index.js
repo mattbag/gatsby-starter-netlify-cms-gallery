@@ -35,7 +35,7 @@ export default class IndexPage extends React.Component {
                 <Link to={post.frontmatter.path} style={{display:`inline-block`}}>
 
                   <img src={post.frontmatter.heroImage} alt={post.frontmatter.title} style={{
-                    width: `100%`, boxShadow: `10px 10px 0 0 black`
+                    width: `100%`, boxShadow: `5px 5px 0 0 black`
                   }} />
                   <div style={{
                     position: `absolute`, top: `60%`, width: `40%`,

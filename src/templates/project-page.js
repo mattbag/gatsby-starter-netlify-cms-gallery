@@ -3,6 +3,9 @@ import Content, { HTMLContent } from '../components/Content';
 import Helmet from 'react-helmet';
 
 export const ProjectTemplate = ({ content, contentComponent, description, title,hero, helmet }) => {
+  console.log('------------------------------------');
+  console.log(content);
+  console.log('------------------------------------');
   const PostContent = contentComponent || Content;
   return <section className="section">
     { helmet ? helmet : ""}
@@ -26,7 +29,7 @@ export default ({ data }) => {
     content={post.html}
     contentComponent={HTMLContent}
     description={post.frontmatter.description}
-    helmet={<Helmet title={`Blog | ${post.frontmatter.title}`} />}
+    helmet={<Helmet title={`Juicy | ${post.frontmatter.title}`} />}
     title={post.frontmatter.title}
     hero={post.frontmatter.heroImage}
   />;

@@ -222,7 +222,7 @@ collections:
         widget: datetime
       - label: Gallery Folder
         name: folder
-        widget: text
+        widget: string
       - label: Cover Image
         name: heroImage
         widget: image
