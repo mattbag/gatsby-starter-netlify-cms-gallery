@@ -76,25 +76,27 @@ class GalleryTemplate extends React.Component {
       <div className="container content">
 
         <div className="columns">
-          <div className="column is-6">
-            <div style={{ boxShadow: `5px 5px 0 0 black` }}>
+          <div className="column" style={{position:`relative`}}>
+            <div style={{ boxShadow: `10px 10px 0 0 black`,  width: `80%`}}>
               {gallery.length &&
                 <img src={hero} alt={title} />
                 ||
                 <Img sizes={gallery[0].node.childImageSharp.sizes} />
               }
             </div>
-          </div>
-          <div className="column is-6">
-            <div className="" style={{
+            <div style={{
+              position:`absolute`, right:0,top:`50%`, width: `50%`,
               backgroundColor: '#fff', zIndex: 1, boxShadow: `5px 5px 0 0 black,-5px -5px 0 0 black`,
-              padding: `1rem`, transform: `translate3d(-10%,20%,0)`
+              padding: `1rem`
             }}>
               <h1 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h1>
               {/* <p>{description}</p> */}
               <PostContent content={content} />
             </div>
           </div>
+          {/* <div className="column is-10">
+           
+          </div> */}
 
         </div>
 
