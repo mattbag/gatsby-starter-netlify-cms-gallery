@@ -220,8 +220,8 @@ collections:
       - label: Publish Date
         name: date
         widget: datetime
-      - label: Description
-        name: description
+      - label: Gallery Folder
+        name: folder
         widget: text
       - label: Cover Image
         name: heroImage
@@ -229,13 +229,3 @@ collections:
       - label: Body
         name: body
         widget: markdown
-      - label: Collection Gallery
-        name: galleryImages
-        widget: list
-        field:
-        - label: Title
-          name: title
-          widget: string
-        - label: Image
-          name: galleryImage
-          widget: image
